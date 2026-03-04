@@ -54,9 +54,16 @@ class CreatePersonalRecordTable extends Migration
                 date = VALUES(date)
         ");
 
-        $pdo->exec("
-            CREATE INDEX idx_movement_value
-            ON personal_record (movement_id, value DESC)
+        $stmt = $pdo->query("
+            SHOW INDEX FROM personal_record 
+            WHERE Key_name = 'idx_movement_value'
         ");
+
+        if ($stmt->rowCount() === 0) {
+            $pdo->exec("
+                CREATE INDEX idx_movement_value
+                ON personal_record (movement_id, value DESC)
+            ");
+        }
     }
 }

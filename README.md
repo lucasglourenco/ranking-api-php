@@ -26,6 +26,12 @@ API simples para geração de ranking de recordes pessoais por movimento.
    php -S localhost:8000 -t public
 
 
+## Exemplo 
+
+- Busca por ID: 
+http://localhost:8000/ranking/1
+- Busca por nome: http://localhost:8000/ranking/Bench Press
+
 ## Bibliotecas Utilizadas
 
 - **nikic/fast-route** — biblioteca leve para roteamento HTTP.
